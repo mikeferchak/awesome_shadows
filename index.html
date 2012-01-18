@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
+        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+        <script type="text/javascript" src='https://raw.github.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js'></script>
+        <script type='text/javascript' src='application.js'></script>
+        <style type="text/css">
+            #wrap {
+                height:100%;
+                width:960px;
+                margin: 0px auto;
+                display:block;
+                position: relative;
+            }
+
+            #sun{
+                position:fixed;
+                top:10%;
+                left:50%;
+                width:200px;
+                height:200px;
+                background:yellow;
+            }
+            #box {
+                width:200px;
+                height:200px;
+                background:pink;
+                z-index:200;
+            }
+            #rightbox {
+                width:200px;
+                height:200px;
+                background:pink;
+                z-index:200;
+                position: absolute;
+                right:0px;
+            }
+            .inset {
+                margin: 2em;
+                background:rgba(0,0,0,.1);
+                border-radius:5px;
+                padding: 20px 0px 40px 0px;
+                z-index:10;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <h1 class="shadowtext candrag">HOLY CRAP!</h1>
+            <p class="stuff"></p>
+            <div id="sun"><p>light source</p></div>
+            <div id="box" class="shadowbox candrag">
+                <p></p>
+            </div>
+            <div id="rightbox" class="shadowbox candrag">
+                <p></p>
+            </div>
+            <div id="anotherbox" class="inset candrag">
+                <h2>An inset div woo.</h2>
+                <p></p>
+            </div>
+
+        </div>
+    </body>
+</html>
