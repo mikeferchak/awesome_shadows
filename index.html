@@ -1,65 +1,80 @@
 <html>
     <head>
-        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js'></script>
-        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
-        <script type="text/javascript" src='https://raw.github.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js'></script>
-        <script type='text/javascript' src='application.js'></script>
         <style type="text/css">
-            #wrap {
-                height:100%;
-                width:960px;
-                margin: 0px auto;
-                display:block;
-                position: relative;
+
+            body {
+              padding: 0;
+              margin: 0;
+              font-family: Helvetica, sans;
+              font-size: 26px;
+              text-decoration: bold;
+              text-align: center;
             }
 
-            #sun{
+            h1 {
+              font-size: 3em;
+              padding-top: 2em;
+            }
+
+            #awesome_light_source, #box, #rightbox {
+              width:200px;
+              height:200px;
+            }
+
+            #box, #rightbox {
+              background: #666;
+              color: white;
+              z-index:200;
+              position: absolute;
+            }
+
+            #awesome_light_source {
                 position:fixed;
-                top:10%;
-                left:50%;
-                width:200px;
-                height:200px;
+                left:43%;
                 background:yellow;
             }
+
             #box {
-                width:200px;
-                height:200px;
-                background:pink;
-                z-index:200;
+                left: 20%;
             }
+
             #rightbox {
-                width:200px;
-                height:200px;
-                background:pink;
-                z-index:200;
-                position: absolute;
-                right:0px;
-            }
-            .inset {
-                margin: 2em;
-                background:rgba(0,0,0,.1);
-                border-radius:5px;
-                padding: 20px 0px 40px 0px;
-                z-index:10;
+              right:20%;
             }
         </style>
     </head>
     <body>
         <div id="wrap">
-            <h1 class="shadowtext candrag">HOLY CRAP!</h1>
+            <h1 class="shadowtext">
+              <span class="word awesome_text_shadow">Dynamic</span>
+              <span class="word awesome_text_shadow">CSS</span>
+              <span class="word awesome_text_shadow">shadows!</span>
+            </h1>
+            <h2 class="shadowtext awesome_text_shadow">HOLY MOLY!</h2>
             <p class="stuff"></p>
-            <div id="sun"><p>light source</p></div>
-            <div id="box" class="shadowbox candrag">
-                <p></p>
+            <div id="awesome_light_source" class="candrag">
+              <p>light source</p>
+              <p>drag it around</p>
             </div>
-            <div id="rightbox" class="shadowbox candrag">
-                <p></p>
+            <div id="box" class="shadowbox candrag awesome_shadow">
+                <p>Here's a box</p>
             </div>
-            <div id="anotherbox" class="inset candrag">
-                <h2>An inset div woo.</h2>
-                <p></p>
+            <div id="rightbox" class="shadowbox candrag awesome_inset_shadow">
+                <p>Here's an inset box</p>
             </div>
-
         </div>
     </body>
+    <script src='http://code.jquery.com/jquery-2.0.2.min.js'></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src='awesome_shadows.js'></script>
+    <script>
+        (function($) {
+            $(".candrag").draggable({
+                cursor: 'move',
+                containment: 'document',
+                drag: awesomeShadows.refresh,
+                stop: awesomeShadows.refresh
+            });
+        })(jQuery);
+    </script>
 </html>
